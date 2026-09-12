@@ -74,7 +74,7 @@ const initialProjects = [
     },
     {
         "id": "1789245372873",
-        "title": "AUSO 2026",
+        "title": "Assumption University Student Organization (AUSO) 2026",
         "date": "2026-07-10",
         "tags": [
             "Others"
@@ -150,6 +150,21 @@ const initialProjects = [
             "https://i.postimg.cc/h4zpqLgF/Content-Sample.png",
             "https://i.postimg.cc/KckJyPbd/Influencer-Choice.png",
             "https://i.postimg.cc/KckJyPbC/Timeline.png"
+        ],
+        "video": ""
+    },
+    {
+        "id": "1789251414194",
+        "title": "Visual Concept for Nutella Sustainability Campaign ",
+        "date": "2025-09-26",
+        "tags": [
+            "Academic Project"
+        ],
+        "desc": "An academic project for Digital Marketing course on visual concept for Nutella's sustainability campaign<div><ul><li>Design visual concept with sustainability theme</li><li>Campaign plan and hashtags</li><li>Influencer marketing (choose 1 influencer)</li><li>Reasons and campaign concepts</li></ul></div>",
+        "images": [
+            "https://i.postimg.cc/yY3sN19j/nutella1.jpg",
+            "https://i.postimg.cc/3J0Yw8pt/nutella2.jpg",
+            "https://i.postimg.cc/wTRgBqJ0/nutella3.jpg"
         ],
         "video": ""
     },
