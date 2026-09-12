@@ -170,5 +170,19 @@ const initialProjects = [
             "https://i.postimg.cc/tT2TSZSd/AP-539.jpg"
         ],
         "video": ""
+    },
+    {
+        "id": "1789248889557",
+        "title": "AUMSC 2025: Public Relations",
+        "date": "2025-06-13",
+        "tags": [
+            "Others"
+        ],
+        "desc": "Part of the AU Myanmar Students Community 2025 and served as the Head of Public Relations for the academic year 2025 of AUMSC 2025",
+        "images": [
+            "https://i.postimg.cc/wj5y4cW8/MSC1.jpg",
+            "https://i.postimg.cc/RZ16pQgj/MSC2.jpg"
+        ],
+        "video": ""
     }
 ]
