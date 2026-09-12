@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | IT & Digital Media</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header Nav -->
+        <header>
+            <div class="logo">WUNNA AUNG_PORTFOLIO.AU</div>
+            <nav class="nav-menu">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="admin-toggle-btn" id="adminToggle">Editor Mode</button>
+            </nav>
+        </header>
+
+        <!-- Profile Hero Section -->
+        <section class="hero">
+            <span class="badge">Assumption University • IT & Digital Media</span>
+            <h1>Connecting People Through <span>Events, Hosting & Tech</span></h1>
+            <p>IT student at AU passionate about digital marketing and live events. Experienced in campus event organizing, public speaking as an official university MC, and executing digital campaigns. Looking to bridge technology and communication in creative projects.</p>
+            
+            <div class="highlights">
+                <div class="highlight-card">
+                    <h4>Campus MC</h4>
+                    <p>Hosted official university events, ceremonies, and student gatherings.</p>
+                </div>
+                <div class="highlight-card">
+                    <h4>Event Logistics</h4>
+                    <p>Organized campus activities from planning and marketing down to execution.</p>
+                </div>
+                <div class="highlight-card">
+                    <h4>IT & Marketing</h4>
+                    <p>Combining IT knowledge with practical content and digital promo strategies.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Editor Panel -->
+        <div class="editor-panel" id="editorPanel">
+            <h2 id="formHeader">Add New Project or Event</h2>
+            <form id="projectForm">
+                <input type="hidden" id="editProjectId" value="">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" id="pTitle" placeholder="e.g., Annual Tech Summit Campaign" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Event Date (Used for automatic chronological sorting)</label>
+                        <input type="date" id="pDate" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Categories (Select all that apply)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="pTags" value="Academic Project"> Academic Project
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="pTags" value="MC & Hosting"> MC & Hosting
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="pTags" value="Event Organizing"> Event Organizing
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="pTags" value="Others"> Others
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Image URLs (Paste image links separated by commas)</label>
+                        <input type="text" id="pImages" placeholder="https://i.ibb.co/photo1.jpg, https://i.ibb.co/photo2.jpg">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Optional Video Link (YouTube Embed or Direct .mp4 Link)</label>
+                        <input type="text" id="pVideo" placeholder="https://www.youtube.com/embed/... or direct video URL">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Description</label>
+                        <div class="editor-toolbar">
+                            <button type="button" class="toolbar-btn" onclick="formatDoc('bold')" title="Bold"><b>B</b></button>
+                            <button type="button" class="toolbar-btn" onclick="formatDoc('italic')" title="Italic"><i>I</i></button>
+                            <button type="button" class="toolbar-btn" onclick="formatDoc('insertUnorderedList')" title="Bullet List">• List</button>
+                            <button type="button" class="toolbar-btn" onclick="formatDoc('insertOrderedList')" title="Numbered List">1. List</button>
+                        </div>
+                        <div class="rich-textarea" id="pDesc" contenteditable="true"></div>
+                    </div>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="submit-btn" id="submitBtn">Publish to Portfolio</button>
+                    <button type="button" class="cancel-btn" id="cancelBtn" style="display:none;">Cancel Edit</button>
+                </div>
+            </form>
+
+            <button class="export-btn" id="exportBtn">Export Data JSON (For Permanent GitHub Deploy)</button>
+        </div>
+
+        <!-- Filters -->
+        <div class="controls">
+            <button class="filter-btn active" data-filter="all">All Experience</button>
+            <button class="filter-btn" data-filter="Academic Project">Academic Project</button>
+            <button class="filter-btn" data-filter="MC & Hosting">MC & Hosting</button>
+            <button class="filter-btn" data-filter="Event Organizing">Event Organizing</button>
+            <button class="filter-btn" data-filter="Others">Others</button>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="portfolio-grid" id="portfolioGrid"></div>
+
+        <!-- About Me Section -->
+        <section id="about" class="info-section">
+            <h2 class="section-title">About Me</h2>
+            <div class="info-card">
+                <p>
+                    Hello! I am Wunna Aung, an Information Technology student at Assumption University with a deep passion for digital media, event hosting, and public relations.
+                </p>
+                <p>
+                    My strength lies in bridging technical IT solutions with live communications. Whether it's emceeing high-profile university events, coordinating campus logistics, or executing promotional campaigns, I thrive in dynamic, fast-paced environments.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="info-section contact-section">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-sub">
+                Interested in collaborating, hosting an event, or discussing IT projects? Feel free to reach out!
+            </p>
+
+            <div class="contact-links">
+                <a href="mailto:your.email@example.com" class="contact-btn">✉️ Email Me</a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-btn">💼 LinkedIn</a>
+                <a href="https://instagram.com/yourhandle" target="_blank" class="contact-btn">📸 Instagram</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Gallery Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="close-lightbox" id="closeLightbox">&times;</button>
+            
+            <div class="media-viewer" id="mediaViewer">
+                <button class="nav-arrow left" id="prevBtn">&#10094;</button>
+                <div id="mediaContainer" class="media-container"></div>
+                <button class="nav-arrow right" id="nextBtn">&#10095;</button>
+            </div>
+
+            <div class="lightbox-details">
+                <div class="tags-container" id="lbTags"></div>
+                <h3 id="lbTitle" class="lb-title">Title</h3>
+                <div id="lbDesc" class="lb-desc"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- External Scripts (Order matters!) -->
+    <script src="projects.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
