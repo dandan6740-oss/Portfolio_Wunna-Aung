@@ -95,12 +95,11 @@ header {
     text-align: center;
 }
 
-.hero-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.25rem;
-    margin-bottom: 1.5rem;
+.profile-avatar-wrapper {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
 }
 
 /* Avatar Image & Glow */
