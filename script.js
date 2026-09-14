@@ -1,4 +1,3 @@
-// Reset large stored data if corrupted
 try {
     const stored = localStorage.getItem('au_multimedia_portfolio');
     if (stored && stored.length > 3000000) {
@@ -6,7 +5,6 @@ try {
     }
 } catch(e) {}
 
-// Global State
 let projects = JSON.parse(localStorage.getItem('au_multimedia_portfolio')) || initialProjects;
 let isAdmin = false;
 let currentProject = null;
@@ -185,16 +183,27 @@ function openLightbox(id) {
 
     updateMediaViewer();
     lightbox.classList.add('active');
+    document.body.classList.add('modal-open');
 }
 
 function updateMediaViewer() {
     const container = document.getElementById('mediaContainer');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
     container.innerHTML = '';
 
     const allMedia = [...(currentProject.images || [])];
     if (currentProject.video) allMedia.push({ type: 'video', url: currentProject.video });
 
     if (allMedia.length === 0) return;
+
+    if (allMedia.length <= 1) {
+        prevBtn.classList.add('hidden');
+        nextBtn.classList.add('hidden');
+    } else {
+        prevBtn.classList.remove('hidden');
+        nextBtn.classList.remove('hidden');
+    }
 
     const item = allMedia[currentMediaIndex];
 
@@ -223,12 +232,14 @@ document.getElementById('nextBtn').addEventListener('click', (e) => {
     updateMediaViewer();
 });
 
-document.getElementById('closeLightbox').addEventListener('click', () => {
+function closeLightboxModal() {
     lightbox.classList.remove('active');
-});
+    document.body.classList.remove('modal-open');
+}
 
+document.getElementById('closeLightbox').addEventListener('click', closeLightboxModal);
 lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) lightbox.classList.remove('active');
+    if (e.target === lightbox) closeLightboxModal();
 });
 
 document.querySelectorAll('.filter-btn').forEach(btn => {
